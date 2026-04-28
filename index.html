@@ -303,6 +303,71 @@
   </div>
 </section>
 
+  <style>
+  .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 2rem; }
+  .insight-card { 
+    background: var(--bg-card); 
+    border: 1px solid var(--border); 
+    padding: 2rem; 
+    border-radius: var(--radius); 
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .insight-card:hover { border-color: var(--accent); transform: translateY(-5px); background: var(--bg-card2); }
+  .insight-type { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 1px; }
+  .insight-card h4 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--text); }
+  .insight-content { font-size: 14px; color: var(--text-muted); line-height: 1.6; flex-grow: 1; }
+  .insight-footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent2); }
+  .mgmt-highlight { border-left: 3px solid var(--accent2); padding-left: 1rem; margin-top: 1rem; font-style: italic; color: var(--text); }
+</style>
+
+<section id="insights">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">03 — Knowledge Hub</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Technical & Strategic Deep-Dives</h2>
+    
+    <div class="insights-grid">
+      <div class="insight-card">
+        <span class="insight-type">Protocol Architecture</span>
+        <h4>SIP & IMS Orchestration</h4>
+        <div class="insight-content">
+          Deep-dive into RFC 3261, focusing on session state machines and SDP negotiation for VoLTE/Web-RTC. Expert in debugging P-CSCF/S-CSCF interactions during registration and call setup.
+          <div class="mgmt-highlight">
+            "Applying Operational Excellence to reduce MTTR (Mean Time to Repair) in IMS core debugging by 20%."
+          </div>
+        </div>
+        <div class="insight-footer">Keywords: INVITE, 200 OK, PRACK, QoS</div>
+      </div>
+
+      <div class="insight-card">
+        <span class="insight-type">Network Signaling</span>
+        <h4>Diameter / RFC 6733 Master</h4>
+        <div class="insight-content">
+          Specialization in Credit Control (Gy/Ro) and Policy (Gx) interfaces. Analyzing AVP structures to ensure high-accuracy billing and revenue assurance for tier-1 carriers.
+          <div class="mgmt-highlight">
+            "Strategic Risk Mitigation: Ensuring 99.999% revenue integrity during PCRF node migrations."
+          </div>
+        </div>
+        <div class="insight-footer">Keywords: AVP, DWR/DWA, CER/CEA, OCS</div>
+      </div>
+
+      <div class="insight-card" style="border-color: var(--accent2-dim);">
+        <span class="insight-type" style="color: var(--accent2);">IIM-A AGMP Insights</span>
+        <h4>The VUT & Little’s Law in QA</h4>
+        <div class="insight-content">
+          Bridging technical QA with management science. Utilizing the Variability-Utilization-Time (VUT) model to optimize testing pipelines and managing stakeholder expectations through data-driven capacity planning.
+        </div>
+        <div class="insight-footer" style="color: var(--accent);">Strategic Management · 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="education">
   <div class="container">
     <h2>Education</h2>
