@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Venkataraman Swamynathan — Lead R&D Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0c10;
+    --bg-card: #111318;
+    --bg-card2: #161921;
+    --accent: #00d4a0;
+    --accent2: #0096ff;
+    --accent-dim: rgba(0,212,160,0.12);
+    --accent2-dim: rgba(0,150,255,0.1);
+    --text: #e8eaf0;
+    --text-muted: #7a8494;
+    --text-dim: #4a5162;
+    --border: rgba(255,255,255,0.07);
+    --border-accent: rgba(0,212,160,0.25);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Grid bg */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,160,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,160,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    height: 64px;
+    background: rgba(10,12,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 18px;
+    background: var(--accent-dim);
+    border: 1px solid var(--border-accent);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: rgba(0,212,160,0.2); }
+
+  /* SECTIONS */
+  section { position: relative; z-index: 1; }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5vw;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 5vw 60px;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 3rem;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 5px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    background: var(--bg-card);
+  }
+
+  .tag-accent {
+    border-color: var(--border-accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #0a0c10;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--border-accent); color: var(--accent); }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 2.5rem;
+    padding-top: 5rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin-top: 1rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    opacity: 0.3;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+  }
+
+  .timeline-item:hover { border-color: rgba(0,212,160,0.2); }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 22px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px rgba(0,212,160,0.2);
+  }
+
+  .timeline-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-org {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .timeline-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-top: 0.5rem;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 0.8rem;
+  }
+
+  .pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* RECOMMENDATIONS */
+  .recs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 1rem;
+  }
+
+  .rec-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+
+  .rec-card:hover {
+    border-color: rgba(0,150,255,0.25);
+    transform: translateY(-2px);
+  }
+
+  .rec-card::before {
+    content: '\201C';
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem;
+    color: var(--accent2);
+    opacity: 0.15;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    line-height: 1;
+  }
+
+  .rec-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-top: 1rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .rec-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .rec-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent2-dim), rgba(0,212,160,0.15));
+    border: 1px solid rgba(0,150,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  .rec-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .rec-role {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+
+  .li-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    background: var(--accent2-dim);
+    border: 1px solid rgba(0,150,255,0.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* RESUME */
+  #resume .container {
+    padding-bottom: 3rem;
+  }
+
+  .resume-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .resume-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .resume-box p {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 400px;
+    line-height: 1.7;
+  }
+
+  /* CONTACT */
+  #contact {
+    padding-bottom: 6rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 1rem;
+  }
+
+  .contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contact-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+  }
+
+  .contact-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .contact-value {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 5vw;
+  }
+
+  /* Animate in */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner > * {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .hero-eyebrow  { animation-delay: 0.1s; }
+  h1             { animation-delay: 0.22s; }
+  .hero-sub      { animation-delay: 0.36s; }
+  .hero-tags     { animation-delay: 0.48s; }
+  .hero-actions  { animation-delay: 0.58s; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 4vw; }
+    .nav-links { display: none; }
+    #hero { padding: 80px 4vw 40px; }
+    .container { padding: 0 4vw; }
+    .resume-box { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">VS.QA</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#recommendations">Recommendations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#resume" class="nav-cta">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Resume
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">12+ Years · Telecom · Global Experience</div>
+    <h1>Venkataraman<br><em>Swamynathan</em></h1>
+    <p class="hero-sub">
+      Lead R&amp;D Engineer and IIM Ahmedabad (AGMP) candidate with over 12 years of global 
+      experience in Telecom. Spearheading carrier-grade validation and automation strategies 
+      for Tier-1 US carriers including T-Mobile and AT&amp;T.
+    </p>
+    <div class="hero-tags">
+      <span class="tag tag-accent">Diameter / SIP / VoLTE</span>
+      <span class="tag tag-accent">CI/CD Integration</span>
+      <span class="tag">IMS &amp; EPC Systems</span>
+      <span class="tag">API Testing</span>
+      <span class="tag">Network Resiliency</span>
+      <span class="tag">Team Leadership</span>
+      <span class="tag">Agile · Scrum</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Get in touch
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#experience" class="btn-ghost">View my work</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">02 — Work</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Work Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div>
+            <div class="timeline-org">Telaverge Communications · Bengaluru, India</div>
+            <h3>Lead Engineer – Research &amp; Development</h3>
+          </div>
+          <span class="timeline-date">Oct 2024 — Present</span>
+        </div>
+        <p class="timeline-desc">
+          Architecting carrier-grade Diameter Stack validation and R&amp;D strategies for global tier-1 carriers. 
+          Directs end-to-end validation across multiple telecom interfaces ensuring 100% product reliability. 
+          Drives CI/CD-integrated quality improvements using Seagull traffic generators and the Regal automation 
+          framework within Linux environments. Manages firmware upgrade deployment roadmaps through rigorous 
+          impact analysis ensuring zero-downtime transitions.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">Diameter Stack</span>
+          <span class="pill">Seagull</span>
+          <span class="pill">Regal Framework</span>
+          <span class="pill">Linux</span>
+          <span class="pill">CI/CD</span>
+          <span class="pill">Performance Benchmarking</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div>
+            <div class="timeline-org">Orchestra Technology · Chennai, India &nbsp;|&nbsp; Client: T-Mobile</div>
+            <h3>Senior Software QA Engineer</h3>
+          </div>
+          <span class="timeline-date">Apr 2020 — Aug 2023</span>
+        </div>
+        <p class="timeline-desc">
+          Spearheaded end-to-end quality lifecycle for T-Mobile's DIGITS 2.0 (Web &amp; Desktop), managing WRG 
+          node integration for browser-based voice and messaging. Orchestrated Emergency Calling (911) 
+          compliance validation per federal telecom regulations. Developed a customer-centric automation test 
+          suite replicating complex user journeys. Presented strategic system enhancements to executive 
+          leadership, significantly reducing platform downtime.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">DIGITS 2.0</span>
+          <span class="pill">Web-RTC</span>
+          <span class="pill">SIP Protocol</span>
+          <span class="pill">VoLTE</span>
+          <span class="pill">Regression Testing</span>
+          <span class="pill">911 Compliance</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div>
+            <div class="timeline-org">Orchestra Technology · Bellevue, WA &nbsp;|&nbsp; Client: T-Mobile</div>
+            <h3>Software QA Engineer &amp; IMS Tester — UCC Platform</h3>
+          </div>
+          <span class="timeline-date">Dec 2017 — Jun 2019</span>
+        </div>
+        <p class="timeline-desc">
+          Directed infrastructure resiliency and failover testing across virtualized IMS Core nodes 
+          (Mavenir elements including Web-RTC Gateways, mUCCAS/VMAS, CDB). Led integration and 
+          troubleshooting between VoLTE mobile devices and Web-RTC platforms. Conducted advanced Voice 
+          &amp; Video QoS benchmarking using Spirent Nomad to calculate Mean Opinion Scores (MOS).
+        </p>
+        <div class="skill-pills">
+          <span class="pill">IMS Core</span>
+          <span class="pill">Web-RTC</span>
+          <span class="pill">Spirent Nomad</span>
+          <span class="pill">Failover Testing</span>
+          <span class="pill">QoS / MOS</span>
+          <span class="pill">SIP Call Flow</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div>
+            <div class="timeline-org">Tech Mahindra Americas · Redmond, WA &nbsp;|&nbsp; Client: AT&amp;T</div>
+            <h3>Senior Test Engineer</h3>
+          </div>
+          <span class="timeline-date">Sep 2017 — Dec 2017</span>
+        </div>
+        <p class="timeline-desc">
+          Led revenue assurance and financial systems validation for AT&amp;T Prepaid VoLTE. Audited cash 
+          flow integrity across PCRF, DRA, and OCS nodes. Validated critical firmware upgrades in 
+          pre-production to ensure zero-downtime "zero-leakage" deployments in live carrier networks.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">PCRF</span>
+          <span class="pill">OCS / DRA</span>
+          <span class="pill">Billing Systems</span>
+          <span class="pill">Revenue Assurance</span>
+          <span class="pill">VoLTE</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div>
+            <div class="timeline-org">Nexius Insight Inc. · Redmond, WA &nbsp;|&nbsp; Client: AT&amp;T</div>
+            <h3>Network Engineer</h3>
+          </div>
+          <span class="timeline-date">Jan 2012 — Jun 2017</span>
+        </div>
+        <p class="timeline-desc">
+          Managed performance impact of migrating Cricket Wireless subscribers onto AT&amp;T network. 
+          Collaborated with 25+ OEM vendors to certify 50+ devices and modems within the AT&amp;T VoLTE 
+          environment. Optimized certification workflows increasing test execution speed by 25%. Led EPC 
+          node regression and negative testing (MME, HSS, GW) and partnered with DirecTV and PCRF teams 
+          to validate Toll-Free Data features for millions of subscribers.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">EPC (MME/HSS/GW)</span>
+          <span class="pill">OEM Certification</span>
+          <span class="pill">Carrier Aggregation</span>
+          <span class="pill">PCRF</span>
+          <span class="pill">QXDM / QCAT</span>
+          <span class="pill">JDSU</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">03 — Education</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Education</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div>
+            <div class="timeline-org">Anna University</div>
+            <h3>B.E. Computer Science &amp; Engineering</h3>
+          </div>
+          <span class="timeline-date">2012 — 2016</span>
+        </div>
+        <p class="timeline-desc">
+          Graduated with distinction. Core coursework in software engineering, data structures, 
+          database systems, and computer networks. Final project on automated regression testing 
+          for web applications.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">CGPA 8.4 / 10</span>
+          <span class="pill">Chennai, India</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div>
+            <div class="timeline-org">ISTQB</div>
+            <h3>Certified Tester — Advanced Level (CTAL-TA)</h3>
+          </div>
+          <span class="timeline-date">2020</span>
+        </div>
+        <p class="timeline-desc">
+          Advanced-level certification covering test management, test analysis, and technical 
+          testing skills. Demonstrates deep knowledge of software testing principles and methodology.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">Certification</span>
+          <span class="pill">ISTQB</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">04 — LinkedIn</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Recommendations</h2>
+    <div class="recs-grid">
+
+      <div class="rec-card">
+        <span class="li-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zM7.7 8.7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM18 17h-2.5v-3.5c0-1-.4-1.5-1.2-1.5-.8 0-1.3.5-1.3 1.5V17H10.5v-7H13v1a2.7 2.7 0 0 1 2.4-1.1c1.7 0 2.6 1 2.6 3V17z"/></svg>
+          LinkedIn
+        </span>
+        <p class="rec-text">
+          "Alex is one of the most thorough and methodical QA leads I have worked with. 
+          Their automation work saved our team countless hours and their ability to communicate 
+          quality risks to stakeholders is exceptional. A true quality champion."
+        </p>
+        <div class="rec-author">
+          <div class="rec-avatar">SR</div>
+          <div>
+            <div class="rec-name">Siddharth Rao</div>
+            <div class="rec-role">Engineering Manager · TechCorp</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <span class="li-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zM7.7 8.7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM18 17h-2.5v-3.5c0-1-.4-1.5-1.2-1.5-.8 0-1.3.5-1.3 1.5V17H10.5v-7H13v1a2.7 2.7 0 0 1 2.4-1.1c1.7 0 2.6 1 2.6 3V17z"/></svg>
+          LinkedIn
+        </span>
+        <p class="rec-text">
+          "I had the privilege of working alongside Alex at Infrared Solutions. They transformed 
+          our QA process from reactive bug-catching to proactive quality engineering. Their 
+          technical depth, especially in API and performance testing, is remarkable."
+        </p>
+        <div class="rec-author">
+          <div class="rec-avatar">PK</div>
+          <div>
+            <div class="rec-name">Priya Krishnan</div>
+            <div class="rec-role">Senior Dev · Infrared Solutions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <span class="li-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zM7.7 8.7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM18 17h-2.5v-3.5c0-1-.4-1.5-1.2-1.5-.8 0-1.3.5-1.3 1.5V17H10.5v-7H13v1a2.7 2.7 0 0 1 2.4-1.1c1.7 0 2.6 1 2.6 3V17z"/></svg>
+          LinkedIn
+        </span>
+        <p class="rec-text">
+          "Alex mentored me during my first year in QA and fundamentally shaped how I think 
+          about testing. Patient, knowledgeable, and always leads by example. Any team would 
+          be fortunate to have this person at the helm of quality."
+        </p>
+        <div class="rec-author">
+          <div class="rec-avatar">NV</div>
+          <div>
+            <div class="rec-name">Nikhil Varma</div>
+            <div class="rec-role">QA Engineer · TechCorp</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">05 — Resume</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="resume-box">
+      <div>
+        <h3>Download My Resume</h3>
+        <p>Full CV with detailed project descriptions, tools &amp; tech stack, certifications, and references. Last updated April 2026.</p>
+      </div>
+      <a href="Alex_Morgan_Resume.pdf" download class="btn-primary" style="white-space:nowrap;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">06 — Contact</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Get in Touch</h2>
+    <p style="font-size:15px; color:var(--text-muted); margin-bottom:1.5rem; max-width:480px;">
+      Open to senior and lead QA roles, consulting engagements, and interesting conversations about quality engineering.
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:alex.morgan@email.com" class="contact-card">
+        <div class="contact-icon">✉</div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">alex.morgan@email.com</div>
+      </a>
+      <a href="https://linkedin.com/in/alexmorgan" target="_blank" class="contact-card">
+        <div class="contact-icon" style="color:var(--accent2)">in</div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/alexmorgan</div>
+      </a>
+      <a href="https://github.com/alexmorgan-qa" target="_blank" class="contact-card">
+        <div class="contact-icon">⌥</div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">github.com/alexmorgan-qa</div>
+      </a>
+      <a href="tel:+919876543210" class="contact-card">
+        <div class="contact-icon">◎</div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+91 98765 43210</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Alex Morgan</span>
+  <span>Lead QA Engineer · Chennai, India</span>
+</footer>
+
+</body>
+</html>
