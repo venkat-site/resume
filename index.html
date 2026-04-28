@@ -191,12 +191,15 @@
 
   .timeline-org { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); }
   .timeline-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
-  .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; }
+  .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; margin-top: 8px; display: inline-block; }
 
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 1rem; }
   .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; text-decoration: none; display: flex; flex-direction: column; gap: 6px; }
 
   footer { border-top: 1px solid var(--border); padding: 1.5rem 5vw; display: flex; justify-content: space-between; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
+
+  .qr-container { text-align: center; margin-top: 3rem; }
+  .qr-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 12px; }
 
   @media (max-width: 640px) { .nav-links { display: none; } }
 </style>
@@ -268,22 +271,15 @@
         <span class="timeline-date">Apr 2020 — Aug 2023</span>
         <p>Spearheaded quality lifecycle for T-Mobile's DIGITS 2.0. Managed critical 911 regulatory compliance and presented system-resilience roadmaps to leadership.</p>
         <div class="skill-pills">
-          <span class="pill">VoLTE</span><span class="pill">SIP</span><span class="pill">911 Compliance</span><span class="pill">WebRTC</span><span class="pill"VoIP</span>
+          <span class="pill">VoLTE</span><span class="pill">SIP</span><span class="pill">911 Compliance</span><span class="pill">WebRTC</span><span class="pill">VoIP</span>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-meta">
-          <div>
-            <div class="timeline-org">Orchestra Technology · Bellevue, WA | Client: T-Mobile</div>
-            <h3>Network QA Engineer</h3>
-          </div>
-          <span class="timeline-date">Dec 2017 — Jun 2019</span>
-        </div>
-        <p class="timeline-desc">
-          Architected network-aligned test cases for T-Mobile’s UCC platform, ensuring 24/7 availability via IMS Core resiliency and failover testing.
-          Executed "Network Hardening" and VoIP QoE benchmarking using Spirent Nomad for mission-critical MOS scoring.
-        </p>
+        <div class="timeline-org">Orchestra Technology · Bellevue, WA | Client: T-Mobile</div>
+        <h3>Network QA Engineer</h3>
+        <span class="timeline-date">Dec 2017 — Jun 2019</span>
+        <p>Architected network-aligned test cases for T-Mobile’s UCC platform, ensuring 24/7 availability via IMS Core resiliency and failover testing. Executed "Network Hardening" and VoIP QoE benchmarking using Spirent Nomad for mission-critical MOS scoring.</p>
         <div class="skill-pills">
           <span class="pill">IMS Core</span>
           <span class="pill">REST API Testing</span>
@@ -348,6 +344,15 @@
         <div class="contact-label">Phone</div>
         <div class="contact-value">+91 98407 11664</div>
       </a>
+    </div>
+
+    <div class="qr-container">
+      <div class="qr-label">SCAN TO VIEW MOBILE VERSION</div>
+      <img 
+        src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://venkat-site.github.io/resume/&color=00d4a0&bgcolor=0a0c10" 
+        alt="Portfolio QR" 
+        style="border: 1px solid var(--border-accent); padding: 10px; border-radius: 8px; background: var(--bg-card);"
+      />
     </div>
   </div>
 </section>
