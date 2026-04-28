@@ -97,7 +97,7 @@
     transition: background 0.2s;
   }
 
-  section { position: relative; z-index: 1; }
+  section { position: relative; z-index: 1; padding: 80px 0; }
   .container { max-width: 900px; margin: 0 auto; padding: 0 5vw; }
 
   #hero {
@@ -125,34 +125,37 @@
     line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--text);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   h1 em { font-style: italic; color: var(--accent); }
 
   .hero-sub {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
-    max-width: 520px;
+    max-width: 650px;
     margin-bottom: 2.5rem;
     font-weight: 300;
     line-height: 1.8;
+    text-align: justify;
   }
+
+  .tag-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 2.5rem; }
 
   .tag {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 4px;
     border: 1px solid var(--border);
     color: var(--text-muted);
     background: var(--bg-card);
-    margin-right: 8px;
-    margin-bottom: 8px;
     display: inline-block;
+    white-space: nowrap;
   }
 
   .tag-accent { border-color: var(--border-accent); color: var(--accent); background: var(--accent-dim); }
+  .tag-mgmt { border-color: var(--accent2-dim); color: var(--accent2); background: var(--accent2-dim); border: 1px solid rgba(0,150,255,0.3); }
 
   .btn-primary {
     display: inline-flex;
@@ -215,23 +218,30 @@
     <div class="hero-eyebrow">Lead QA Engineer · IIM-A Candidate</div>
     <h1>Venkataraman<br><em>Swamynathan</em></h1>
     <p class="hero-sub">
-      Lead R&D Engineer and IIM Ahmedabad (AGMP) candidate with over 12 years of global experience in the Telecom sector. 
+      Lead QA Engineer and IIM Ahmedabad (AGMP) candidate with over 12 years of global experience in the Telecom sector. 
       Proven track record of spearheading complex system validation and R&D strategies for Tier-1 US carriers, including T-Mobile and AT&T.
-      Currently bridging the gap between technical mastery and strategic general management by mastering scalable operational, marketing, and sales frameworks. 
-      Seeking to leverage deep-domain expertise in Software QA and highstakes Project Management to drive organizational transformation and cross-functional excellence. 
+      <br><br>
+      Bridging the gap between technical mastery and strategic general management through scalable operational and marketing frameworks. 
+      Leveraging deep-domain expertise in Software QA and high-stakes Project Management to drive organizational transformation.
     </p>
-    <div class="hero-tags">
-      <span class="tag tag-accent">IIM-A AGMP 2026</span>
-      <span class="tag tag-accent">Diameter</span>
-      <span class="tag tag-accent">IMS</span>
-      <span class="tag tag-accent">4G/5G</span>
-      <span class="tag tag-accent">STLC</span>
-      <span class="tag tag-accent">VoLTE</span>
-      <span class="tag tag-accent">WebRTC</span>
-      <span class="tag tag-accent">CI/CD Automation</span>
-      <span class="tagtag-accent">Project Management</span
-      <span class="tag tag-accent">Lead QA</span>                                               
+
+    <div class="tag-container">
+      <div class="tag-row">
+        <span class="tag tag-accent">Diameter</span>
+        <span class="tag tag-accent">IMS</span>
+        <span class="tag tag-accent">4G/5G</span>
+        <span class="tag tag-accent">STLC</span>
+        <span class="tag tag-accent">VoLTE</span>
+        <span class="tag tag-accent">WebRTC</span>
+        <span class="tag tag-accent">CI/CD Automation</span>
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-mgmt">IIM-A AGMP 2026</span>
+        <span class="tag tag-mgmt">Project Management & Lead QA</span>
+        <span class="tag">Strategic Transformation</span>
+      </div>
     </div>
+
     <div class="hero-actions">
       <a href="#experience" class="btn-primary">View Experience</a>
     </div>
@@ -287,14 +297,14 @@
       </div>
       <div class="timeline-item">
         <div class="timeline-org">Syracuse University, NY</div>
-        <h3>M.S in Electrical Engineering</h3>
-        <span class="timeline-date">2009-2011</span>
+        <h3>M.S. in Electrical Engineering</h3>
+        <span class="timeline-date">2009 — 2011</span>
         <p>Specialization in Wireless Communication.</p>
       </div>
       <div class="timeline-item">
         <div class="timeline-org">Atharva College of Engineering, Mumbai</div>
         <h3>B.E. Electronics & Telecommunication</h3>
-        <span class="timeline-date">2005-2009</span>
+        <span class="timeline-date">2005 — 2009</span>
       </div>
     </div>
   </div>
@@ -310,7 +320,7 @@
       </a>
       <a href="https://www.linkedin.com/in/venkataraman-swamynathan-3074582a/" target="_blank" class="contact-card">
         <div class="contact-label">LinkedIn</div>
-        <div class="contact-value">Profile Page</div>
+        <div class="contact-value">View Profile</div>
       </a>
       <a href="tel:+919840711664" class="contact-card">
         <div class="contact-label">Phone</div>
