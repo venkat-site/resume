@@ -80,34 +80,42 @@
 
   .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; margin-bottom: 8px; display: inline-block; }
 
-  /* Knowledge Hub Style */
-  .hub-card {
-    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 2rem; text-decoration: none; display: block; transition: 0.3s;
-  }
-  .hub-card:hover { border-color: var(--accent); background: var(--bg-card2); transform: translateY(-4px); }
-  .hub-tag { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; display: block; }
-  .hub-card h3 { font-size: 1.5rem; color: var(--text); margin-bottom: 12px; }
-  .hub-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
-  .hub-cta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; text-decoration: underline; }
-
+  /* Recommendations Styles */
   .rec-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-  .rec-link { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; cursor: pointer; }
+  .rec-link { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 18px 24px; background: var(--bg-card); border: 1px solid var(--border); 
+    border-radius: 8px; text-decoration: none; color: var(--text); 
+    font-weight: 500; transition: 0.3s; cursor: pointer; 
+  }
   .rec-link:hover { border-color: var(--accent); background: var(--bg-card2); }
   .rec-link span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; }
 
-  .modal { display: none; position: fixed; z-index: 1000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(10, 12, 16, 0.95); backdrop-filter: blur(8px); }
-  .modal-content { margin: auto; display: block; width: 90%; max-width: 800px; border: 1px solid var(--border); border-radius: 12px; }
-  .close-modal { position: absolute; top: 20px; right: 35px; color: var(--text); font-size: 40px; font-weight: bold; cursor: pointer; }
+  /* Modal (Lightbox) Styles */
+  .modal {
+    display: none; position: fixed; z-index: 1000; padding-top: 60px;
+    left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+    background-color: rgba(10, 12, 16, 0.95); backdrop-filter: blur(8px);
+  }
+  .modal-content {
+    margin: auto; display: block; width: 90%; max-width: 800px;
+    border: 1px solid var(--border); border-radius: 12px;
+  }
+  .close-modal {
+    position: absolute; top: 20px; right: 35px; color: var(--text);
+    font-size: 40px; font-weight: bold; cursor: pointer;
+  }
 
+  /* Contact Styles */
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
   .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-decoration: none; transition: 0.2s; display: block; }
   .contact-card:hover { border-color: var(--accent); background: var(--bg-card2); }
   .contact-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; }
   .contact-value { color: var(--text); font-weight: 500; margin-top: 4px; }
 
-  .nav-cta { display: inline-flex; align-items: center; padding: 7px 18px; background: var(--accent-dim); border: 1px solid var(--border-accent); border-radius: 6px; font-size: 11px; font-weight: 500; color: var(--accent); text-decoration: none; text-transform: uppercase; }
   .resume-container { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; margin-top: 1rem; border: 1px solid var(--border); }
+  @media (max-width: 600px) { iframe { height: 450px; } .mobile-resume-link { display: block !important; text-align: center; margin: 20px 0; } }
+
   footer { border-top: 1px solid var(--border); padding: 2.5rem 5vw; display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
 </style>
 </head>
@@ -118,7 +126,6 @@
   <ul class="nav-links">
     <li><a href="#experience">Experience</a></li>
     <li><a href="#recommendations">Recommendations</a></li>
-    <li><a href="#knowledge-hub">Knowledge Hub</a></li>
     <li><a href="#resume-viewer">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -206,6 +213,27 @@
         <div class="skill-pills">
           <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span><span class="pill">Regression Testing</span>
         </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">Dec 2017 — Jun 2019</span>
+        <div class="timeline-org">Orchestra Technology Inc.</div>
+        <h3>Software QA Engineer (Client: T-Mobile)</h3>
+        <p>Directed comprehensive failover architectures for virtualized IMS Core nodes.</p>
+        
+        <details class="more-info">
+          <summary>Project Details & Impact</summary>
+          <ul>
+            <li>Directed comprehensive node-level validation for Mavenir IMS elements ensuring seamless interoperability between VoLTE and Web-RTC platforms.</li>
+            <li>Analyzed intricate SIP/Web-RTC call flows to design robust test strategies for mission-critical voice and group calling services.</li>
+            <li>Conducted advanced QoS assessments using Spirent Nomad (MOS scoring) while driving "Network Hardening" initiatives to bolster system security.</li>
+          </ul>
+        </details>
+
+        <div class="skill-pills">
+          <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span><span class="pill">Web-RTC</span><span class="pill">Inter-operability Testing</span>
+        </div>
+      </div>
 
       <div class="timeline-item">
         <span class="timeline-date">2012 — 2017</span>
@@ -224,7 +252,6 @@
         <div class="skill-pills">
           <span class="pill">EPC Nodes</span><span class="pill">Device Cert</span><span class="pill">Optimization</span>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -259,31 +286,12 @@
   <img class="modal-content" id="img01">
 </div>
 
-<section id="knowledge-hub">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">05 — Knowledge Hub</span>
-      <div class="section-line"></div>
-    </div>
-    
-    <a href="https://telcotalk-venkat.blogspot.com/2026/04/session-initiation-protocol-101.html" target="_blank" class="hub-card">
-      <span class="hub-tag">Technical Publication | SIP 101</span>
-      <h3>Session Initiation Protocol (SIP): The Core of Modern Telephony</h3>
-      <p>We are going to dive into the most important protocol of Modern Era - SIP</p>
-      <div class="hub-cta">Read Full Article on TelcoTalk →</div>
-    </a>
-  </div>
-</section>
-
 <section id="resume-viewer">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">06 — Resume</span>
+      <span class="section-label">05 — Resume</span>
       <div class="section-line"></div>
-      <div style="display: flex; gap: 10px;">
-        <a href="#knowledge-hub" class="nav-cta" style="background: transparent; border-color: var(--border);">Technical Blog</a>
-        <a href="Resume.pdf" download class="nav-cta">Download PDF</a>
-      </div>
+      <a href="Resume.pdf" download class="nav-cta">Download PDF</a>
     </div>
     <div class="resume-container">
       <iframe src="Resume.pdf#view=FitH" width="100%" height="800px" style="border: none;"></iframe>
@@ -294,7 +302,7 @@
 <section id="contact">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">07 — Contact</span>
+      <span class="section-label">06 — Contact</span>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid">
