@@ -80,24 +80,41 @@
 
   .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; margin-bottom: 8px; display: inline-block; }
 
-  .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-  .rec-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; overflow: hidden; transition: 0.3s; }
-  .rec-card:hover { border-color: var(--accent); }
-  .rec-card img { width: 100%; height: auto; border-radius: 8px; display: block; filter: grayscale(20%); transition: 0.3s; }
-  .rec-card:hover img { filter: grayscale(0%); }
+  /* Recommendations Styles */
+  .rec-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+  .rec-link { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 18px 24px; background: var(--bg-card); border: 1px solid var(--border); 
+    border-radius: 8px; text-decoration: none; color: var(--text); 
+    font-weight: 500; transition: 0.3s; cursor: pointer; 
+  }
+  .rec-link:hover { border-color: var(--accent); background: var(--bg-card2); }
+  .rec-link span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; }
 
-  .resume-container { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; margin-top: 1rem; border: 1px solid var(--border); }
-  @media (max-width: 600px) { iframe { height: 450px; } .mobile-resume-link { display: block !important; text-align: center; margin: 20px 0; } }
+  /* Modal (Lightbox) Styles */
+  .modal {
+    display: none; position: fixed; z-index: 1000; padding-top: 60px;
+    left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+    background-color: rgba(10, 12, 16, 0.95); backdrop-filter: blur(8px);
+  }
+  .modal-content {
+    margin: auto; display: block; width: 90%; max-width: 800px;
+    border: 1px solid var(--border); border-radius: 12px;
+  }
+  .close-modal {
+    position: absolute; top: 20px; right: 35px; color: var(--text);
+    font-size: 40px; font-weight: bold; cursor: pointer;
+  }
 
-  .btn-primary { display: inline-flex; align-items: center; padding: 12px 24px; background: var(--accent); color: #0a0c10; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s; margin-top: 1rem; }
-  .btn-primary:hover { transform: translateY(-2px); }
-  .nav-cta { display: inline-flex; align-items: center; padding: 7px 18px; background: var(--accent-dim); border: 1px solid var(--border-accent); border-radius: 6px; font-size: 11px; font-weight: 500; color: var(--accent); text-decoration: none; text-transform: uppercase; }
-
+  /* Contact Styles */
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
   .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-decoration: none; transition: 0.2s; display: block; }
   .contact-card:hover { border-color: var(--accent); background: var(--bg-card2); }
   .contact-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; }
   .contact-value { color: var(--text); font-weight: 500; margin-top: 4px; }
+
+  .resume-container { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; margin-top: 1rem; border: 1px solid var(--border); }
+  @media (max-width: 600px) { iframe { height: 450px; } .mobile-resume-link { display: block !important; text-align: center; margin: 20px 0; } }
 
   footer { border-top: 1px solid var(--border); padding: 2.5rem 5vw; display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
 </style>
@@ -119,7 +136,7 @@
     <div class="hero-eyebrow">Strategic Technical Leader | AGMP, IIM Ahmedabad | QA & Systems Engineering Expert</div>
     <h1>Venkataraman<br><em>Swamynathan</em></h1>
     <p class="hero-sub">
-      With over 12 years of experience in the telecommunications industry, I bridge the gap between complex engineering systems and strategic business management. My career has been defined by a deep expertise in high-performance network protocols and a commitment to ensuring the integrity of large-scale communication infrastructures. 
+      With over 12 years of experience in the telecommunications industry, I bridge the gap between complex engineering systems and strategic business management. 
       <br><br>
       Currently, I am augmenting my technical foundation with an Accelerated General Management Program (AGMP) at IIM Ahmedabad, transforming operational challenges into strategic advantages.
     </p>
@@ -132,31 +149,25 @@
           <p>Mastery of SIP, Diameter, and core telecom signaling to ensure network integrity.</p>
         </div>
       </div>
-      
       <div class="expertise-item">
         <div class="expertise-icon">02</div>
         <div class="expertise-content">
           <b>Systems Thinking</b>
-          <p>Architecting scalable network strategies and robust quality frameworks for Tier-1 carriers.</p>
+          <p>Architecting scalable network strategies and robust quality frameworks.</p>
         </div>
       </div>
-      
       <div class="expertise-item">
         <div class="expertise-icon">03</div>
         <div class="expertise-content">
           <b>Strategic Management</b>
-          <p>Synthesizing IIM-A business insights to align complex technical delivery with corporate goals.</p>
+          <p>Aligning complex technical delivery with corporate strategic goals.</p>
         </div>
       </div>
     </div>
-
-    <div class="hero-actions">
-      <a href="#experience" class="btn-primary">View Experience</a>
-    </div>
   </div>
 </section>
-  
-  <section id="experience">
+
+<section id="experience">
   <div class="container">
     <div class="section-header">
       <span class="section-label">02 — Experience</span>
@@ -169,17 +180,8 @@
         <div class="timeline-org">Telaverge Communications</div>
         <h3>Lead Engineer – Research & Development</h3>
         <p>Architecting carrier-grade Diameter Stack validation and R&D strategies.</p>
-        
-        <details class="more-info">
-          <summary>Project Details & Impact</summary>
-          <ul>
-            <li>Orchestrated the comprehensive validation roadmap for high-velocity Diameter Stack deployments.</li>
-            <li>Engineered simulation environments using Seagull and the Regal automation suite.</li>
-          </ul>
-        </details>
-
         <div class="skill-pills">
-          <span class="pill">Diameter</span><span class="pill">STLC</span><span class="pill">Implementation of PoC</span><span class="pill">Customer Interaction</span><span class="pill">R&D Strategy</span>
+          <span class="pill">Diameter</span><span class="pill">STLC</span><span class="pill">R&D Strategy</span>
         </div>
       </div>
 
@@ -188,63 +190,9 @@
         <div class="timeline-org">Orchestra Technology Pvt. Ltd.</div>
         <h3>Senior Software QA Engineer (Client: T-Mobile)</h3>
         <p>Spearheaded end-to-end quality for T-Mobile’s DIGITS 2.0 and 911 compliance.</p>
-        
-        <details class="more-info">
-          <summary>Project Details & Impact</summary>
-          <ul>
-            <li>Directed integration of WRG nodes for high-performance voice and messaging services.</li>
-            <li>Validated mission-critical 911 emergency calling functionalities for federal compliance.</li>
-          </ul>
-        </details>
-
         <div class="skill-pills">
-          <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span><span class="pill">Regression Testing</span>
+          <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span>
         </div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="timeline-date">Dec 2017 — Jun 2019</span>
-        <div class="timeline-org">Orchestra Technology Inc.</div>
-        <h3>Software QA Engineer (Client: T-Mobile)</h3>
-        <p>Directed comprehensive failover architectures for virtualized IMS Core nodes.</p>
-        
-        <details class="more-info">
-          <summary>Project Details & Impact</summary>
-          <ul>
-            <li>Validated Mavenir IMS elements for VoLTE and Web-RTC interoperability.</li>
-            <li>Analyzed SIP/Web-RTC call flows to design robust test strategies.</li>
-          </ul>
-        </details>
-
-        <div class="skill-pills">
-          <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span><span class="pill">Web-RTC</span><span class="pill">Inter-operability Testing</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">03 — Education</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <span class="timeline-date">2025 - (2026)</span>
-        <div class="timeline-org">IIM Ahmedabad</div>
-        <h3>Accelerated General Management Program (AGMP)</h3>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-date">2009 - 2011</span>
-        <div class="timeline-org">Syracuse University</div>
-        <h3>M.S. in Electrical Engineering</h3>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-date">2005 - 2009</span>
-        <div class="timeline-org">Atharva College of Engineering, University of Mumbai</div>
-        <h3>B.E in Electronics and Telecommunication</h3>
       </div>
     </div>
   </div>
@@ -256,21 +204,28 @@
       <span class="section-label">04 — Endorsements</span>
       <div class="section-line"></div>
     </div>
-    <div class="rec-grid">
-      <div class="rec-card">
-        <img src="Reco 1.png" alt="LinkedIn Recommendation 1">
+    
+    <div class="rec-list">
+      <div class="rec-link" onclick="openModal('Reco 1.png')">
+        <div>Leadership & Technical Excellence Recommendation</div>
+        <span>View Detail +</span>
       </div>
-      <div class="rec-card">
-        <img src="Reco 2.png" alt="LinkedIn Recommendation 2">
+      <div class="rec-link" onclick="openModal('Reco 2.png')">
+        <div>Strategic Systems QA Recommendation</div>
+        <span>View Detail +</span>
       </div>
-      <div class="rec-card">
-        <img src="Reco 3.png" alt="LinkedIn Recommendation 3">
+      <div class="rec-link" onclick="openModal('Reco 3.png')">
+        <div>Team Collaboration & Project Delivery Recommendation</div>
+        <span>View Detail +</span>
       </div>
     </div>
   </div>
 </section>
 
-
+<div id="myModal" class="modal">
+  <span class="close-modal" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
 
 <section id="resume-viewer">
   <div class="container">
@@ -279,12 +234,8 @@
       <div class="section-line"></div>
       <a href="Resume.pdf" download class="nav-cta">Download PDF</a>
     </div>
-    
     <div class="resume-container">
       <iframe src="Resume.pdf#view=FitH" width="100%" height="800px" style="border: none;"></iframe>
-      <div class="mobile-resume-link" style="display: none;">
-        <a href="Resume.pdf" download class="btn-primary">Download Resume</a>
-      </div>
     </div>
   </div>
 </section>
@@ -316,6 +267,20 @@
   <span>© 2026 Venkataraman Swamynathan</span>
   <span>Chennai, India</span>
 </footer>
+
+<script>
+  function openModal(imgSrc) {
+    document.getElementById("myModal").style.display = "block";
+    document.getElementById("img01").src = imgSrc;
+  }
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+  window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) { modal.style.display = "none"; }
+  }
+</script>
 
 </body>
 </html>
