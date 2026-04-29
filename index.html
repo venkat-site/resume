@@ -25,7 +25,6 @@
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.7; overflow-x: hidden; }
 
-  /* Grid Background */
   body::before {
     content: ''; position: fixed; inset: 0;
     background-image: linear-gradient(rgba(0,212,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,160,0.03) 1px, transparent 1px);
@@ -50,13 +49,20 @@
   .section-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; }
   .section-line { flex: 1; height: 1px; background: var(--border); }
 
-  /* Hero Section */
-  #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+  #hero { min-height: 80vh; display: flex; align-items: center; padding-top: 100px; padding-bottom: 40px; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
   h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 7vw, 5rem); line-height: 1.05; margin-bottom: 1.5rem; }
   h1 em { font-style: italic; color: var(--accent); }
   .hero-sub { font-size: 1rem; color: var(--text-muted); max-width: 750px; margin-bottom: 2rem; text-align: justify; font-weight: 300; }
 
-  /* Timeline & Expandable Info */
+  /* Expertise Cards */
+  .expertise-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .expertise-item { display: flex; gap: 16px; padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; transition: 0.3s; }
+  .expertise-item:hover { border-color: var(--accent); transform: translateY(-4px); background: var(--bg-card2); }
+  .expertise-icon { color: var(--accent); font-size: 12px; font-weight: 600; font-family: 'DM Mono', monospace; }
+  .expertise-content b { display: block; color: var(--text); font-size: 16px; margin-bottom: 6px; }
+  .expertise-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
   .timeline { position: relative; padding-left: 28px; border-left: 1px solid var(--border); }
   .timeline-item { position: relative; margin-bottom: 3.5rem; }
   .timeline-item::before { content: ''; position: absolute; left: -33px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
@@ -64,13 +70,8 @@
   .timeline-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); display: block; margin-bottom: 8px; }
   .timeline-item h3 { font-size: 1.25rem; margin-bottom: 8px; font-weight: 500; }
   
-  /* The "More Information" Styling */
   .more-info { margin: 15px 0; cursor: pointer; }
-  .more-info summary { 
-    font-family: 'DM Mono', monospace; font-size: 11px; color: var(--detail-blue); 
-    text-transform: uppercase; list-style: none; display: flex; align-items: center; gap: 8px; 
-    letter-spacing: 0.05em; transition: 0.3s;
-  }
+  .more-info summary { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--detail-blue); text-transform: uppercase; list-style: none; display: flex; align-items: center; gap: 8px; letter-spacing: 0.05em; transition: 0.3s; }
   .more-info summary::before { content: '○'; font-size: 10px; font-weight: bold; }
   .more-info[open] summary { color: var(--text); }
   .more-info[open] summary::before { content: '●'; color: var(--detail-blue); }
@@ -80,11 +81,10 @@
 
   .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; margin-bottom: 8px; display: inline-block; }
 
-  /* Resume Viewer */
   .resume-container { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; margin-top: 1rem; border: 1px solid var(--border); }
   @media (max-width: 600px) { iframe { height: 450px; } .mobile-resume-link { display: block !important; text-align: center; margin: 20px 0; } }
 
-  .btn-primary { display: inline-flex; align-items: center; padding: 12px 24px; background: var(--accent); color: #0a0c10; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s; }
+  .btn-primary { display: inline-flex; align-items: center; padding: 12px 24px; background: var(--accent); color: #0a0c10; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s; margin-top: 1rem; }
   .btn-primary:hover { transform: translateY(-2px); }
   .nav-cta { display: inline-flex; align-items: center; padding: 7px 18px; background: var(--accent-dim); border: 1px solid var(--border-accent); border-radius: 6px; font-size: 11px; font-weight: 500; color: var(--accent); text-decoration: none; text-transform: uppercase; }
 
@@ -117,31 +117,31 @@
       Currently, I am augmenting my technical foundation with an Accelerated General Management Program (AGMP) at IIM Ahmedabad, transforming operational challenges into strategic advantages.
     </p>
 
-    
-  <div class="expertise-item">
-    <div class="expertise-icon">01</div>
-    <div class="expertise-content">
-      <b>Protocol Expertise</b>
-      <p>Mastery of SIP, Diameter, and core telecom signaling to ensure network integrity.</p>
+    <div class="expertise-list">
+      <div class="expertise-item">
+        <div class="expertise-icon">01</div>
+        <div class="expertise-content">
+          <b>Protocol Expertise</b>
+          <p>Mastery of SIP, Diameter, and core telecom signaling to ensure network integrity.</p>
+        </div>
+      </div>
+      
+      <div class="expertise-item">
+        <div class="expertise-icon">02</div>
+        <div class="expertise-content">
+          <b>Systems Thinking</b>
+          <p>Architecting scalable network strategies and robust quality frameworks for Tier-1 carriers.</p>
+        </div>
+      </div>
+      
+      <div class="expertise-item">
+        <div class="expertise-icon">03</div>
+        <div class="expertise-content">
+          <b>Strategic Management</b>
+          <p>Synthesizing IIM-A business insights to align complex technical delivery with corporate goals.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="expertise-item">
-    <div class="expertise-icon">02</div>
-    <div class="expertise-content">
-      <b>Systems Thinking</b>
-      <p>Architecting scalable network strategies and robust quality frameworks for Tier-1 carriers.</p>
-    </div>
-  </div>
-  
-  <div class="expertise-item">
-    <div class="expertise-icon">03</div>
-    <div class="expertise-content">
-      <b>Strategic Management</b>
-      <p>Synthesizing IIM-A business insights to align complex technical delivery with corporate goals.</p>
-    </div>
-  </div>
-</div>
 
     <div class="hero-actions">
       <a href="#experience" class="btn-primary">View Experience</a>
@@ -152,7 +152,7 @@
 <section id="experience">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">01 — Experience</span>
+      <span class="section-label">02 — Experience</span>
       <div class="section-line"></div>
     </div>
     
@@ -186,33 +186,34 @@
         <details class="more-info">
           <summary>Project Details & Impact</summary>
           <ul>
-            <li>Spearheaded the end-to-end quality strategy for T-Mobile’s DIGITS 2.0 (Web/Desktop), directing the integration of WRG nodes to enable high-performance, browser-based voice and messaging services for a global user base. </li>
-            <li>Led testing for multi-line device synchronization (DIGITS) across VoLTE and WebRTC systems.Orchestrated the validation of mission-critical 911 emergency calling functionalities, ensuring 100% adherence to federal regulatory standards while presenting technical roadmaps to executive leadership that significantly improved platform stability.</li>
-            <li>Transformed complex business requirements into scalable test architectures and a customer-centric automation suite, proactively identifying system vulnerabilities and streamlining the full testing lifecycle to ensure error-free production environments.</li>
+            <li>Spearheaded the end-to-end quality strategy for T-Mobile’s DIGITS 2.0 (Web/Desktop), directing the integration of WRG nodes to enable high-performance, browser-based voice and messaging services for a global user base.</li>
+            <li>Orchestrated the validation of mission-critical 911 emergency calling functionalities, ensuring 100% adherence to federal regulatory standards while presenting technical roadmaps to executive leadership.</li>
+            <li>Transformed complex business requirements into scalable test architectures and a customer-centric automation suite, proactively identifying system vulnerabilities.</li>
           </ul>
         </details>
 
         <div class="skill-pills">
           <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span><span class="pill">Regression Testing</span>
+        </div>
       </div>
 
       <div class="timeline-item">
         <span class="timeline-date">Dec 2017 — Jun 2019</span>
         <div class="timeline-org">Orchestra Technology Inc.</div>
         <h3>Software QA Engineer (Client: T-Mobile)</h3>
-        <p>Directed comprehensive failover architectures for virtualized IMS Core nodes, utilizing deep SIP/Web-RTC signaling analysis and QoS benchmarking to guarantee 24/7 service availability and a premium user experience across complex interworking environments.</p>
+        <p>Directed comprehensive failover architectures for virtualized IMS Core nodes.</p>
         
         <details class="more-info">
           <summary>Project Details & Impact</summary>
           <ul>
-            <li>Directed comprehensive node-level validation for Mavenir IMS elements—including Web-RTC Gateways and Application Servers—ensuring seamless interoperability between VoLTE and Web-RTC platforms. </li>
-            <li>Analyzed intricate SIP/Web-RTC call flows to design robust test strategies for mission-critical voice and group calling services, significantly reducing interoperability bugs through cross-team collaboration.</li>
-            <li>Conducted advanced QoS assessments using Spirent Nomad (MOS scoring) while driving "Network Hardening" initiatives to bolster system security and premium user experience standards.</li>
+            <li>Directed comprehensive node-level validation for Mavenir IMS elements ensuring seamless interoperability between VoLTE and Web-RTC platforms.</li>
+            <li>Analyzed intricate SIP/Web-RTC call flows to design robust test strategies for mission-critical voice and group calling services.</li>
+            <li>Conducted advanced QoS assessments using Spirent Nomad (MOS scoring) while driving "Network Hardening" initiatives to bolster system security.</li>
           </ul>
         </details>
 
         <div class="skill-pills">
-          <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span><span class="pill">Web-RTC</span><span class="pill">Inter-operability Testing</span><span class="pill">Voice Call Quality Testing</span>
+          <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">VoIP</span><span class="pill">Web-RTC</span><span class="pill">Inter-operability Testing</span>
         </div>
       </div>
 
@@ -241,7 +242,7 @@
 <section id="education">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">02 — Education</span>
+      <span class="section-label">03 — Education</span>
       <div class="section-line"></div>
     </div>
     <div class="timeline">
@@ -262,7 +263,7 @@
 <section id="resume-viewer">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">03 — Resume</span>
+      <span class="section-label">04 — Resume</span>
       <div class="section-line"></div>
       <a href="Resume.pdf" download class="nav-cta">Download PDF</a>
     </div>
@@ -279,7 +280,7 @@
 <section id="contact">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">04 — Contact</span>
+      <span class="section-label">05 — Contact</span>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid">
