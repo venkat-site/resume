@@ -147,4 +147,165 @@
 
   /* TIMELINE */
   .timeline { position: relative; padding-left: 28px; margin-top: 1rem; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), transparent); opacity: 0.3; }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+  .timeline-org { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); }
+  .timeline-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
+  .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; margin-top: 8px; display: inline-block; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 1rem; }
+  .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; text-decoration: none; display: flex; flex-direction: column; gap: 6px; }
+  
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 5vw; display: flex; justify-content: space-between; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
+
+  @media (max-width: 768px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">VENKATARAMAN.S</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#insights">Insights</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Strategic Technical Leader | AGMP, IIM Ahmedabad</div>
+    <h1>Venkataraman<br><em>Swamynathan</em></h1>
+    <p class="hero-sub">
+      With over 12 years of experience in the telecommunications industry, I bridge the gap between complex engineering systems and strategic business management. My career has been defined by a deep expertise in high-performance network protocols and a commitment to ensuring the integrity of large-scale communication infrastructures. 
+      <br><br>
+      Currently, I am augmenting my technical foundation with an Accelerated General Management Program (AGMP) at IIM Ahmedabad, transforming operational challenges into strategic advantages.
+    </p>
+    
+    <div class="specialization-list">
+      <div class="spec-item">
+        <b>Protocol Expertise</b>
+        In-depth knowledge of SIP, Diameter, and core telecom signaling.
+      </div>
+      <div class="spec-item">
+        <b>Systems Thinking</b>
+        Designing robust, scalable network strategies and quality frameworks.
+      </div>
+      <div class="spec-item">
+        <b>Strategic Management</b>
+        Leveraging IIM-A insights to align technical delivery with organizational goals.
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#experience" class="btn-primary">View Experience</a>
+    </div>
+  </div>
+</section>
+
+<section id="insights">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">01 — Knowledge Hub</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Technical & Strategic Deep-Dives</h2>
+    
+    <div class="insights-grid">
+      <div class="insight-card">
+        <span class="insight-type">Protocol Architecture</span>
+        <h4>SIP & IMS Orchestration</h4>
+        <div class="insight-content">
+          Deep-dive into RFC 3261 session state machines and SDP negotiation for VoLTE.
+          <div class="mgmt-highlight">Applied Operational Excellence to reduce MTTR in IMS debugging by 20%.</div>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <span class="insight-type">Network Signaling</span>
+        <h4>Diameter / RFC 6733</h4>
+        <div class="insight-content">
+          Specialization in Credit Control (Gy/Ro) and Policy (Gx) interfaces for real-time billing.
+          <div class="mgmt-highlight">Strategic Risk Mitigation: Ensured 99.99% revenue integrity during node migrations.</div>
+        </div>
+      </div>
+
+      <div class="insight-card" style="border-color: var(--accent2-dim);">
+        <span class="insight-type" style="color: var(--accent2);">Management Science</span>
+        <h4>VUT & Little’s Law</h4>
+        <div class="insight-content">
+          Bridging technical QA with IIM-A frameworks. Utilizing the Variability-Utilization-Time model to optimize testing pipelines.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">02 — Professional Path</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Work Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-org">Telaverge Communications · Bengaluru</div>
+        <h3>Lead Engineer – Research & Development</h3>
+        <span class="timeline-date">Oct 2024 — Present</span>
+        <p>Architecting carrier-grade Diameter Stack validation. Directing end-to-end validation for global tier-1 carriers using Regal automation.</p>
+        <div class="skill-pills">
+          <span class="pill">Diameter</span><span class="pill">Automation</span><span class="pill">Linux</span>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">03 — Academic Foundation</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-org">IIM Ahmedabad</div>
+        <h3>Accelerated General Management Program (AGMP)</h3>
+        <span class="timeline-date">2026</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-org">Syracuse University, NY</div>
+        <h3>M.S. in Electrical Engineering</h3>
+        <span class="timeline-date">2011</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <div class="contact-grid">
+      <a href="mailto:vswamyna@gmail.com" class="contact-card">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">vswamyna@gmail.com</div>
+      </a>
+      <a href="https://linkedin.com/in/venkataraman-swamynathan-3074582a/" target="_blank" class="contact-card">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">View Profile</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Venkataraman Swamynathan</span>
+  <span>Lead R&D Engineer · Chennai, India</span>
+</footer>
+
+</body>
+</html>
