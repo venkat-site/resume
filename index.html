@@ -140,6 +140,20 @@
   .qr-container { text-align: center; margin-top: 3rem; }
   .qr-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 12px; }
 
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #0a0c10;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s;
+  }
+
   footer { border-top: 1px solid var(--border); padding: 1.5rem 5vw; display: flex; justify-content: space-between; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
 
   @media (max-width: 768px) { .nav-links { display: none; } }
@@ -150,10 +164,10 @@
 <nav>
   <a href="#hero" class="nav-logo">VENKATARAMAN.S</a>
   <ul class="nav-links">
-    <li><a href="#insights">Insights</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#insights">Insights</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Connect</a>
 </nav>
@@ -167,7 +181,7 @@
       Spearheading R&D for Tier-1 carriers while bridging the gap between technical protocol mastery and strategic management.
     </p>
     <div class="hero-actions">
-      <a href="#insights" class="btn-primary">Explore Knowledge Hub</a>
+      <a href="#experience" class="btn-primary">View Experience</a>
     </div>
   </div>
 </section>
