@@ -11,7 +11,7 @@
     --bg-card: #111318;
     --bg-card2: #161921;
     --accent: #00d4a0;
-    --accent2: #0096ff;
+    --detail-blue: #0096ff;
     --accent-dim: rgba(0,212,160,0.12);
     --text: #e8eaf0;
     --text-muted: #7a8494;
@@ -25,6 +25,7 @@
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.7; overflow-x: hidden; }
 
+  /* Grid Background */
   body::before {
     content: ''; position: fixed; inset: 0;
     background-image: linear-gradient(rgba(0,212,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,160,0.03) 1px, transparent 1px);
@@ -48,54 +49,50 @@
   .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 2rem; }
   .section-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; }
   .section-line { flex: 1; height: 1px; background: var(--border); }
-  h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--text); margin-bottom: 1rem; }
 
-  .btn-primary {
-    display: inline-flex; align-items: center; padding: 12px 24px; background: var(--accent); color: #0a0c10;
-    border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform 0.2s;
-  }
-  .btn-primary:hover { transform: translateY(-2px); }
-
-  .nav-cta {
-    display: inline-flex; align-items: center; padding: 7px 18px; background: var(--accent-dim);
-    border: 1px solid var(--border-accent); border-radius: 6px; font-size: 11px; font-weight: 500;
-    color: var(--accent); text-decoration: none; text-transform: uppercase;
-  }
-
+  /* Hero Section */
   #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
-  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
   h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 7vw, 5rem); line-height: 1.05; margin-bottom: 1.5rem; }
   h1 em { font-style: italic; color: var(--accent); }
   .hero-sub { font-size: 1rem; color: var(--text-muted); max-width: 750px; margin-bottom: 2rem; text-align: justify; font-weight: 300; }
 
-  .specialization-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 2.5rem; }
-  .spec-item b { color: var(--accent); display: block; margin-bottom: 4px; font-weight: 500; }
-  .spec-item { font-size: 14px; color: var(--text-muted); }
-
+  /* Timeline & Expandable Info */
   .timeline { position: relative; padding-left: 28px; border-left: 1px solid var(--border); }
-  .timeline-item { position: relative; margin-bottom: 3rem; }
+  .timeline-item { position: relative; margin-bottom: 3.5rem; }
   .timeline-item::before { content: ''; position: absolute; left: -33px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
   .timeline-org { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); }
   .timeline-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); display: block; margin-bottom: 8px; }
   .timeline-item h3 { font-size: 1.25rem; margin-bottom: 8px; font-weight: 500; }
-  .timeline-item p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+  
+  /* The "More Information" Styling */
+  .more-info { margin: 15px 0; cursor: pointer; }
+  .more-info summary { 
+    font-family: 'DM Mono', monospace; font-size: 11px; color: var(--detail-blue); 
+    text-transform: uppercase; list-style: none; display: flex; align-items: center; gap: 8px; 
+    letter-spacing: 0.05em; transition: 0.3s;
+  }
+  .more-info summary::before { content: '○'; font-size: 10px; font-weight: bold; }
+  .more-info[open] summary { color: var(--text); }
+  .more-info[open] summary::before { content: '●'; color: var(--detail-blue); }
+  .more-info ul { margin-top: 12px; padding-left: 18px; border-left: 1px solid rgba(0, 150, 255, 0.2); list-style: none; }
+  .more-info li { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; position: relative; }
+  .more-info li::before { content: "•"; position: absolute; left: -18px; color: var(--detail-blue); font-size: 14px; top: -2px; }
+
   .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; margin-bottom: 8px; display: inline-block; }
 
+  /* Resume Viewer */
   .resume-container { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; margin-top: 1rem; border: 1px solid var(--border); }
-  @media (max-width: 600px) { 
-    iframe { height: 450px; } 
-    .mobile-resume-link { display: block !important; text-align: center; margin-top: 20px; }
-  }
+  @media (max-width: 600px) { iframe { height: 450px; } .mobile-resume-link { display: block !important; text-align: center; margin: 20px 0; } }
+
+  .btn-primary { display: inline-flex; align-items: center; padding: 12px 24px; background: var(--accent); color: #0a0c10; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .nav-cta { display: inline-flex; align-items: center; padding: 7px 18px; background: var(--accent-dim); border: 1px solid var(--border-accent); border-radius: 6px; font-size: 11px; font-weight: 500; color: var(--accent); text-decoration: none; text-transform: uppercase; }
 
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
   .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-decoration: none; transition: 0.2s; display: block; }
   .contact-card:hover { border-color: var(--accent); background: var(--bg-card2); }
-  .contact-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
-  .contact-value { color: var(--text); font-weight: 500; margin-top: 4px; font-size: 15px; }
 
   footer { border-top: 1px solid var(--border); padding: 2.5rem 5vw; display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
-
-  @media (max-width: 768px) { .nav-links { display: none; } }
 </style>
 </head>
 <body>
@@ -112,43 +109,30 @@
 
 <section id="hero">
   <div class="container">
-    <span class="hero-eyebrow">Strategic Technical Leader | AGMP, IIM Ahmedabad</span>
+    <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block;">Strategic Technical Leader | AGMP, IIM Ahmedabad</span>
     <h1>Venkataraman<br><em>Swamynathan</em></h1>
     <p class="hero-sub">
-      With over 12 years of experience in the telecommunications industry, I bridge the gap between complex engineering systems and strategic business management. My career has been defined by a deep expertise in high-performance network protocols—including 3G, 4G, VoIP, and VoLTE—and a commitment to ensuring the integrity of large-scale communication infrastructures through rigorous QA and system strategy.
-      <br><br>
-      Currently, I am augmenting my technical foundation with an Accelerated General Management Program (AGMP) at IIM Ahmedabad, transforming operational challenges into strategic advantages.
+      With over 12 years of experience in the telecommunications industry, I bridge the gap between complex engineering systems and strategic business management. Currently augmenting my technical foundation with an Accelerated General Management Program at IIM Ahmedabad.
     </p>
-    
-    <div class="specialization-list">
-      <div class="spec-item"><b>Protocol Expertise</b>In-depth knowledge of SIP, Diameter, and core telecom signaling.</div>
-      <div class="spec-item"><b>Systems Thinking</b>Designing robust, scalable network strategies and quality frameworks.</div>
-      <div class="spec-item"><b>Strategic Management</b>Leveraging IIM-A insights to align technical delivery with organizational goals.</div>
-    </div>
-
-    <div class="hero-actions">
-      <a href="#experience" class="btn-primary">View Experience</a>
-    </div>
+    <a href="#experience" class="btn-primary">View Experience</a>
   </div>
 </section>
 
 <section id="experience">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">01 — Professional Path</span>
+      <span class="section-label">01 — Experience</span>
       <div class="section-line"></div>
     </div>
     
     <div class="timeline">
       <div class="timeline-item">
         <span class="timeline-date">2024 — Present</span>
-        <div class="timeline-org">Telaverge Communications · Bengaluru</div>
+        <div class="timeline-org">Telaverge Communications</div>
         <h3>Lead Engineer – Research & Development</h3>
-        <p>Architecting carrier-grade Diameter Stack validation and R&D strategies. Automating complex network scenarios to accelerate delivery for global telecom infrastructure.</p>
-        <div class="skill-pills">
-          <span class="pill">Diameter</span><span class="pill">STLC</span><span class="pill">Customer Interaction</span><span class="pill">Implementation of PoC</span><span class="pill">R&D Strategy</span>
-        </div>
-        <details class="More-Info">
+        <p>Architecting carrier-grade Diameter Stack validation and R&D strategies.</p>
+        
+        <details class="more-info">
           <summary>Project Details & Impact</summary>
           <ul>
             <li>Orchestrated the comprehensive validation roadmap for high-velocity Diameter Stack deployments, safeguarding system integrity for global Tier-1 carriers.</li>
@@ -156,45 +140,48 @@
             <li>Cultivated a culture of QA excellence by institutionalizing data-driven defect analysis and broadening test coverage to exceed market requirements.</li>
           </ul>
         </details>
+
+        <div class="skill-pills">
+          <span class="pill">Diameter</span><span class="pill">Regal</span><span class="pill">R&D Strategy</span>
+        </div>
       </div>
 
       <div class="timeline-item">
         <span class="timeline-date">2020 — 2023</span>
-        <div class="timeline-org">Orchestra Technology Pvt. Ltd. · Chennai</div>
+        <div class="timeline-org">Orchestra Technology Pvt. Ltd.</div>
         <h3>Senior Software QA Engineer (Client: T-Mobile)</h3>
-        <p>Spearheaded end-to-end quality for T-Mobile’s DIGITS 2.0. Managed critical 911 regulatory compliance and presented system-resilience roadmaps to leadership.</p>
+        <p>Spearheaded end-to-end quality for T-Mobile’s DIGITS 2.0 and 911 compliance.</p>
+        
+        <details class="more-info">
+          <summary>Project Details & Impact</summary>
+          <ul>
+            <li>Managed 911 regulatory compliance testing, ensuring zero-fail connectivity for emergency services.</li>
+            <li>Led testing for multi-line device synchronization (DIGITS) across VoLTE and WebRTC systems.</li>
+            <li>Developed test strategies for complex call-forwarding and virtual number routing scenarios.</li>
+          </ul>
+        </details>
+
         <div class="skill-pills">
           <span class="pill">SIP</span><span class="pill">VoLTE</span><span class="pill">911 Compliance</span>
         </div>
       </div>
 
       <div class="timeline-item">
-        <span class="timeline-date">2017 — 2019</span>
-        <div class="timeline-org">Orchestra Technology Inc. · Bellevue, WA</div>
-        <h3>Software QA Engineer & IMS Tester (Client: T-Mobile)</h3>
-        <p>Directed resiliency and failover testing across virtualized IMS Core nodes. Benchmarked VoIP Quality of Experience (QoE) using Spirent Nomad.</p>
-        <div class="skill-pills">
-          <span class="pill">IMS Core</span><span class="pill">Failover</span><span class="pill">QoS</span>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="timeline-date">2017 — 2017</span>
-        <div class="timeline-org">Tech Mahindra Americas Inc. · Redmond, WA</div>
-        <h3>Senior Test Engineer (Client: AT&T)</h3>
-        <p>Led revenue assurance for AT&T Prepaid VoLTE. Validated firmware upgrades across PCRF and OCS nodes to mitigate financial risk.</p>
-        <div class="skill-pills">
-          <span class="pill">PCRF</span><span class="pill">OCS</span><span class="pill">Revenue Assurance</span>
-        </div>
-      </div>
-
-      <div class="timeline-item">
         <span class="timeline-date">2012 — 2017</span>
-        <div class="timeline-org">Nexius Insight Inc. · Redmond, WA</div>
-        <h3>Network Engineer (Client: AT&T)</h3>
-        <p>Managed global OEM device certifications for 25+ vendors. Optimized QA workflows resulting in a significant boost in certification productivity.</p>
+        <div class="timeline-org">Nexius Insight Inc. (Client: AT&T)</div>
+        <h3>Network Engineer</h3>
+        <p>Managed global OEM device certifications for 25+ vendors.</p>
+        
+        <details class="more-info">
+          <summary>Project Details & Impact</summary>
+          <ul>
+            <li>Certified over 50 mobile devices for network readiness, including 4G LTE features.</li>
+            <li>Automated QA reporting workflows, reducing manual certification time by 15%.</li>
+          </ul>
+        </details>
+
         <div class="skill-pills">
-          <span class="pill">EPC Nodes</span><span class="pill">Device Cert</span><span class="pill">Workflow Optimization</span>
+          <span class="pill">EPC Nodes</span><span class="pill">Device Cert</span><span class="pill">Optimization</span>
         </div>
       </div>
     </div>
@@ -204,30 +191,19 @@
 <section id="education">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">02 — Academic Foundation</span>
+      <span class="section-label">02 — Education</span>
       <div class="section-line"></div>
     </div>
-    
     <div class="timeline">
       <div class="timeline-item">
         <span class="timeline-date">Current</span>
         <div class="timeline-org">IIM Ahmedabad</div>
         <h3>Accelerated General Management Program (AGMP)</h3>
-        <p>Bridging technical expertise with business strategy, focusing on operations and decision theory.</p>
       </div>
-
       <div class="timeline-item">
-        <span class="timeline-date">2009 — 2011</span>
-        <div class="timeline-org">Syracuse University · New York, NY</div>
+        <span class="timeline-date">2011</span>
+        <div class="timeline-org">Syracuse University</div>
         <h3>M.S. in Electrical Engineering</h3>
-        <p>Specialization in Wireless Communication from LC Smith College of Engineering.</p>
-      </div>
-
-      <div class="timeline-item">
-        <span class="timeline-date">2005 — 2009</span>
-        <div class="timeline-org">Atharva College of Engineering · Mumbai, India</div>
-        <h3>B.E. in Electronics & Telecommunication</h3>
-        <p>Mumbai University Professional Degree.</p>
       </div>
     </div>
   </div>
@@ -236,15 +212,14 @@
 <section id="resume-viewer">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">03 — Full Curriculum Vitae</span>
+      <span class="section-label">03 — Resume</span>
       <div class="section-line"></div>
       <a href="Resume.pdf" download class="nav-cta">Download PDF</a>
     </div>
     
     <div class="resume-container">
       <iframe src="Resume.pdf#view=FitH" width="100%" height="800px" style="border: none;"></iframe>
-      <div class="mobile-resume-link" style="display: none; padding: 20px;">
-        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">Viewing on mobile? Download the PDF to view details.</p>
+      <div class="mobile-resume-link" style="display: none;">
         <a href="Resume.pdf" download class="btn-primary">Download Resume</a>
       </div>
     </div>
@@ -254,21 +229,17 @@
 <section id="contact">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">04 — Connection</span>
+      <span class="section-label">04 — Contact</span>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid">
       <a href="mailto:vswamyna@gmail.com" class="contact-card">
-        <div class="contact-label">Email</div>
-        <div class="contact-value">vswamyna@gmail.com</div>
-      </a>
-      <a href="tel:+919840711664" class="contact-card">
-        <div class="contact-label">Phone</div>
-        <div class="contact-value">+91 98407 11664</div>
+        <div style="font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase;">Email</div>
+        <div style="color: var(--text); font-weight: 500; margin-top: 4px;">vswamyna@gmail.com</div>
       </a>
       <a href="https://linkedin.com/in/venkataraman-swamynathan-3074582a/" target="_blank" class="contact-card">
-        <div class="contact-label">LinkedIn</div>
-        <div class="contact-value">View Profile</div>
+        <div style="font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase;">LinkedIn</div>
+        <div style="color: var(--text); font-weight: 500; margin-top: 4px;">View Profile</div>
       </a>
     </div>
   </div>
