@@ -129,6 +129,37 @@
   @media (max-width: 600px) { iframe { height: 450px; } .mobile-resume-link { display: block !important; text-align: center; margin: 20px 0; } }
 
   footer { border-top: 1px solid var(--border); padding: 2.5rem 5vw; display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); }
+/* Paste this right before the </style> tag */
+  .telcotalk-topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .topic-item {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    transition: 0.3s;
+  }
+  .topic-item:hover {
+    border-color: var(--accent-dim);
+    background: rgba(0, 212, 160, 0.05);
+  }
+  .topic-item b {
+    display: block;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 4px;
+    font-family: 'DM Mono', monospace;
+  }
+  .topic-item span {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: block;
+  }
 </style>
 </head>
 <body>
