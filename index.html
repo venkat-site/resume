@@ -80,6 +80,18 @@
 
   .pill { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 4px; background: var(--bg-card2); border: 1px solid var(--border); color: var(--text-muted); margin-right: 5px; margin-bottom: 8px; display: inline-block; }
 
+  /* TelcoTalks Section Styles */
+  .telcotalk-card { 
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); 
+    padding: 2rem; text-decoration: none; display: block; transition: 0.3s;
+  }
+  .telcotalk-card:hover { border-color: var(--accent); background: var(--bg-card2); transform: translateY(-4px); }
+  .telcotalk-tag { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; display: block; }
+  .telcotalk-card h3 { font-size: 1.5rem; color: var(--text); margin-bottom: 12px; transition: color 0.3s; }
+  .telcotalk-card:hover h3 { color: var(--accent); }
+  .telcotalk-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; text-align: justify; }
+  .telcotalk-cta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; text-decoration: underline; letter-spacing: 0.05em; }
+
   /* Recommendations Styles */
   .rec-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
   .rec-link { 
@@ -125,6 +137,7 @@
   <a href="#hero" class="nav-logo">VENKATARAMAN.S</a>
   <ul class="nav-links">
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#telcotalks">TelcoTalks</a></li>
     <li><a href="#recommendations">Recommendations</a></li>
     <li><a href="#resume-viewer">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -257,7 +270,7 @@
   </div>
 </section>
 
-<!-- SECTION 02: TELCOTALKS (Renamed from Knowledge Hub) -->
+<!-- SECTION 02: TELCOTALKS -->
 <section id="telcotalks">
   <div class="container">
     <div class="section-header">
@@ -277,7 +290,7 @@
 <section id="recommendations">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">02 — Endorsements</span>
+      <span class="section-label">03 — Endorsements</span>
       <div class="section-line"></div>
     </div>
     
@@ -306,7 +319,7 @@
 <section id="resume-viewer">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">03 — Resume</span>
+      <span class="section-label">04 — Resume</span>
       <div class="section-line"></div>
       <a href="Resume.pdf" download class="nav-cta">Download PDF</a>
     </div>
@@ -319,7 +332,7 @@
 <section id="contact">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">04 — Contact</span>
+      <span class="section-label">05 — Contact</span>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid">
